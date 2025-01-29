@@ -6,9 +6,13 @@ const Todo = () => {
     description: "",
   });
 
+  const [todos, setTodos] = useState([]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("added todo: ", todo);
+    setTodos([...todos, todo]);
+
     setTodo({
       title: "",
       description: "",
@@ -39,6 +43,9 @@ const Todo = () => {
         <br />
         <button type="submit">Add</button>
       </form>
+      {console.log("all todos", todos)}
+
+      {todos.length > 0 && <h3>All Todo's</h3>}
     </>
   );
 };
