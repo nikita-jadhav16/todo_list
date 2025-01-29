@@ -10,13 +10,19 @@ const Todo = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("added todo: ", todo);
+    // console.log("added todo: ", todo);
     setTodos([...todos, todo]);
 
     setTodo({
       title: "",
       description: "",
     });
+  };
+
+  const onClickDelete = (todoIndex) => {
+    // todos.splice(todoIndex, 1);
+    setTodos(todos.filter((_, index) => index !== todoIndex));
+    // console.log("new todos", todos);
   };
 
   return (
@@ -43,16 +49,23 @@ const Todo = () => {
         <br />
         <button type="submit">Add</button>
       </form>
-      {console.log("all todos", todos)}
+      {/* {console.log("all todos", todos)} */}
 
       {todos.length > 0 && <h3>All Todo's</h3>}
-      {todos.map((todo) => {
-        console.log("map => ", todo);
+      {todos.map((todo, index) => {
+        // console.log("map => ", todo);
 
         return (
           <>
-            <h2>{todo.title}</h2>
+            <h3 key={index}>{todo.title}</h3>
             <p>{todo.description}</p>
+            <button
+              onClick={() => {
+                onClickDelete(index);
+              }}
+            >
+              Delete Todo
+            </button>
           </>
         );
       })}
