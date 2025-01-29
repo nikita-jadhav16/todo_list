@@ -46,6 +46,16 @@ const Todo = () => {
       {console.log("all todos", todos)}
 
       {todos.length > 0 && <h3>All Todo's</h3>}
+      {todos.map((todo) => {
+        console.log("map => ", todo);
+
+        return (
+          <>
+            <h2>{todo.title}</h2>
+            <p>{todo.description}</p>
+          </>
+        );
+      })}
     </>
   );
 };
