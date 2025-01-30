@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import TodoItems from "./TodoItems";
+import Header from "./Header";
 
 const Todo = () => {
   const [todo, setTodo] = useState({
@@ -25,7 +26,7 @@ const Todo = () => {
 
   return (
     <>
-      <h3>Todo's</h3>
+      <Header />
 
       <form onSubmit={handleSubmit}>
         <label htmlFor="todoTitle">Todo's Title: </label>
