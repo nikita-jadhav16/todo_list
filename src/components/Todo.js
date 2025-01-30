@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import TodoItems from "./TodoItems";
 
 const Todo = () => {
   const [todo, setTodo] = useState({
@@ -10,7 +11,6 @@ const Todo = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // console.log("added todo: ", todo);
     setTodos([...todos, todo]);
 
     setTodo({
@@ -20,9 +20,7 @@ const Todo = () => {
   };
 
   const onClickDelete = (todoIndex) => {
-    // todos.splice(todoIndex, 1);
     setTodos(todos.filter((_, index) => index !== todoIndex));
-    // console.log("new todos", todos);
   };
 
   return (
@@ -49,12 +47,12 @@ const Todo = () => {
         <br />
         <button type="submit">Add</button>
       </form>
-      {/* {console.log("all todos", todos)} */}
 
-      {todos.length > 0 && <h3>All Todo's</h3>}
+      {todos.length > 0 &&
+        todos.map((todo, index) => <TodoItems key={index} todo={todo} />)}
+
+      {/* {todos.length > 0 && <h3>All Todo's</h3>}
       {todos.map((todo, index) => {
-        // console.log("map => ", todo);
-
         return (
           <>
             <h3 key={index}>{todo.title}</h3>
@@ -68,7 +66,7 @@ const Todo = () => {
             </button>
           </>
         );
-      })}
+      })} */}
     </>
   );
 };
