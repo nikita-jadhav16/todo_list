@@ -3,9 +3,9 @@ import React from "react";
 const TodoItems = ({ todo }) => {
   return (
     <>
-      <h3>Todo's List</h3>
-      <h1>{todo.title}</h1>
+      <h3>{todo.title}</h3>
       <p>{todo.description}</p>
+      <button>Delete Todo</button>
     </>
   );
 };

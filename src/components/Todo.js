@@ -20,9 +20,9 @@ const Todo = () => {
     });
   };
 
-  const onClickDelete = (todoIndex) => {
-    setTodos(todos.filter((_, index) => index !== todoIndex));
-  };
+  // const onClickDelete = (todoIndex) => {
+  //   setTodos(todos.filter((_, index) => index !== todoIndex));
+  // };
 
   return (
     <>
@@ -49,8 +49,14 @@ const Todo = () => {
         <button type="submit">Add</button>
       </form>
 
-      {todos.length > 0 &&
-        todos.map((todo, index) => <TodoItems key={index} todo={todo} />)}
+      {todos.length > 0 && (
+        <>
+          <h1>Todo's List</h1>
+          {todos.map((todo, index) => (
+            <TodoItems key={index} todo={todo} />
+          ))}
+        </>
+      )}
 
       {/* {todos.length > 0 && <h3>All Todo's</h3>}
       {todos.map((todo, index) => {
