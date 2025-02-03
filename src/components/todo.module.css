@@ -8,7 +8,6 @@
 
 .inputTitle {
   font-size: 20px;
-  /* font-weight: 600; */
 }
 
 .modernInputTitle {
@@ -36,4 +35,13 @@
 
 .modernButton:hover {
   background-color: rgb(178, 178, 54);
+}
+
+.list {
+  width: 40%;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow-wrap: break-word;
 }

@@ -1,0 +1,12 @@
+.todoData {
+  font-size: 2em;
+}
+
+.deleteButton {
+  float: right;
+  background-color: yellow;
+  border: none;
+  padding: 10px 20px;
+  font-weight: 800;
+  border-radius: 10px;
+}

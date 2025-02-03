@@ -13,6 +13,7 @@ const Todo = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     setTodos([...todos, todo]);
 
     setTodo({
@@ -60,29 +61,13 @@ const Todo = () => {
 
       {todos.length > 0 && (
         <>
-          <h1>Todo's List</h1>
-          {todos.map((todo, index) => (
-            <TodoItems key={index} todo={todo} />
-          ))}
+          <div className={styles.list}>
+            {todos.map((todo, index) => (
+              <TodoItems key={index} todo={todo} />
+            ))}
+          </div>
         </>
       )}
-
-      {/* {todos.length > 0 && <h3>All Todo's</h3>}
-      {todos.map((todo, index) => {
-        return (
-          <>
-            <h3 key={index}>{todo.title}</h3>
-            <p>{todo.description}</p>
-            <button
-              onClick={() => {
-                onClickDelete(index);
-              }}
-            >
-              Delete Todo
-            </button>
-          </>
-        );
-      })} */}
     </>
   );
 };
