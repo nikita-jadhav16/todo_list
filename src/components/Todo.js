@@ -22,10 +22,6 @@ const Todo = () => {
     });
   };
 
-  // const onClickDelete = (todoIndex) => {
-  //   setTodos(todos.filter((_, index) => index !== todoIndex));
-  // };
-
   return (
     <>
       <Header />
@@ -59,15 +55,7 @@ const Todo = () => {
         </button>
       </form>
 
-      {todos.length > 0 && (
-        <>
-          <div className={styles.list}>
-            {todos.map((todo, index) => (
-              <TodoItems key={index} todo={todo} />
-            ))}
-          </div>
-        </>
-      )}
+      {todos.length > 0 && <TodoItems todos={todos} setTodos={setTodos} />}
     </>
   );
 };
