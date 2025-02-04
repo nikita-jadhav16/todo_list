@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import TodoItems from "./TodoItems";
 import Header from "./Header";
 import styles from "./todo.module.css";
+import Footer from "./Footer";
 
 const Todo = () => {
   const [todo, setTodo] = useState({
     title: "",
     description: "",
+    status: false,
   });
 
   const [todos, setTodos] = useState([]);
@@ -19,6 +21,7 @@ const Todo = () => {
     setTodo({
       title: "",
       description: "",
+      status: false,
     });
   };
 
@@ -56,6 +59,7 @@ const Todo = () => {
       </form>
 
       {todos.length > 0 && <TodoItems todos={todos} setTodos={setTodos} />}
+      <Footer todos={todos} />
     </>
   );
 };

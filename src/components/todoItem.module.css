@@ -19,3 +19,7 @@
   font-weight: 800;
   border-radius: 10px;
 }
+
+.completedTodo {
+  text-decoration: line-through;
+}

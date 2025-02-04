@@ -2,6 +2,16 @@ import React from "react";
 import styles from "./todoItem.module.css";
 
 const TodoItems = ({ todos, setTodos }) => {
+  const handleClick = (selectedTodo) => {
+    setTodos(
+      todos.map((todo) =>
+        todo.title === selectedTodo.title
+          ? { ...todo, status: !todo.status }
+          : todo
+      )
+    );
+  };
+
   const deleteTodo = (todoIndex) => {
     setTodos(todos.filter((_, index) => index !== todoIndex));
   };
@@ -12,7 +22,12 @@ const TodoItems = ({ todos, setTodos }) => {
         {todos.map((todo, index) => (
           <div key={index}>
             <div className={styles.todoData}>
-              {todo.title}
+              <span
+                className={todo.status ? styles.completedTodo : ""}
+                onClick={() => handleClick(todo)}
+              >
+                {todo.title}
+              </span>
               <span>
                 <button
                   className={styles.deleteButton}
