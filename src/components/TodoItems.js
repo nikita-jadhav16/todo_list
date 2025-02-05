@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./todoItem.module.css";
+import styles from "./todoItems.module.css";
 
 const TodoItems = ({ todos, setTodos }) => {
   const handleClick = (selectedTodo) => {
@@ -16,10 +16,14 @@ const TodoItems = ({ todos, setTodos }) => {
     setTodos(todos.filter((_, index) => index !== todoIndex));
   };
 
+  const sortedTodos = todos
+    .slice()
+    .sort((a, b) => Number(a.status) - Number(b.status));
+
   return (
     <>
       <div className={styles.list}>
-        {todos.map((todo, index) => (
+        {sortedTodos.map((todo, index) => (
           <div key={index}>
             <div className={styles.todoData}>
               <span
